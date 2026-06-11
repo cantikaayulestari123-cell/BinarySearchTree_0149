@@ -22,13 +22,19 @@ public:
 class binarytree
 {
 public:
-     node *root;
+     Node *root;
 
       binarytree()
     {
         root = NULL;
     }
+
+
 }
 
+void insert(string element)
+{
+    
+}
 
 
