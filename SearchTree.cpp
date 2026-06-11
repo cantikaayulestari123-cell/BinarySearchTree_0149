@@ -24,13 +24,13 @@ class binarytree
 public:
      Node *ROOT;
 
-      binarytree()
+     binarytree()
     {
         ROOT = NULL;
     }
 
 
-}
+};
 
 void insert(string element)
 {
@@ -41,9 +41,9 @@ void insert(string element)
      newNode->rightchild = NULL;
 
      Node *parent = NULL;
-     Node *currentnode = NULL;
+     Node *currentNode = NULL;
 
-     search(element, parent, currentnode);
+     search(element, parent, currentNode);
 
        if (parent == NULL)
         {
@@ -77,6 +77,22 @@ void insert(string element)
                 currentnode = currentnode->leftchild;
             else
                 currentnode = currentnode->rightchild;
+        }
+    }
+
+    void inorder(Node *ptr)
+    {
+        if (ROOT == NULL)
+        {
+            cout << "tree is empty" << endl;
+            return;
+        }
+
+        if(ptr != NULL)
+        {
+            inorder(ptr->leftchild);
+            cout << ptr->info << " ";
+            inorder(ptr->rightchild);
         }
     }
 
