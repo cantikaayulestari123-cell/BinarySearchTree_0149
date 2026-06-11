@@ -30,8 +30,6 @@ public:
     }
 
 
-};
-
 void insert(string element)
 {
      Node *newNode = new Node(element, NULL, NULL);
@@ -94,8 +92,9 @@ void insert(string element)
             cout << ptr->info << " ";
             inorder(ptr->rightchild);
         }
-    }
 
+    }
+};
 
 
 
