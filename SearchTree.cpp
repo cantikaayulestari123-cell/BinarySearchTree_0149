@@ -43,6 +43,8 @@ void insert(string element)
      Node *parent = NULL;
      Node *currentnode = NULL;
 
+     search(element, parent, currentnode)
+
 }
 
 
