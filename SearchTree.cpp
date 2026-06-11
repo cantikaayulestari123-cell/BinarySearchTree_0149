@@ -62,4 +62,25 @@ void insert(string element)
 
 }
 
+    // this function searches the current node of the specified node
+    // as well as the current node of its parent
+    void search(string element, Node *&parent, Node *&currentnode)
+    {
+        currentnode = ROOT;
+        parent = NULL;
+
+        while (currentnode != NULL && currentnode->info != element)
+        {
+            parent = currentnode;
+
+            if (element < currentnode->info)
+                currentnode = currentnode->leftchild;
+            else
+                currentnode = currentnode->rightchild;
+        }
+    }
+
+
+
+
 
