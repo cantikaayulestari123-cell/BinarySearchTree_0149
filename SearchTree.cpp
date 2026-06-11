@@ -1,7 +1,7 @@
-//BinarySearchTree_149
+// BinarySearchTree_149
 #include <iostream>
 #include <string>
-using namespace std; 
+using namespace std;
 
 class Node
 {
@@ -22,43 +22,41 @@ public:
 class binarytree
 {
 public:
-     Node *ROOT;
+    Node *ROOT;
 
-     binarytree()
+    binarytree()
     {
         ROOT = NULL;
     }
 
+    void insert(string element)
+    {
+        Node *newNode = new Node(element, NULL, NULL);
 
-void insert(string element)
-{
-     Node *newNode = new Node(element, NULL, NULL);
+        newNode->info = element;
+        newNode->leftchild = NULL;
+        newNode->rightchild = NULL;
 
-     newNode->info = element;
-     newNode->leftchild = NULL;
-     newNode->rightchild = NULL;
+        Node *parent = NULL;
+        Node *currentNode = NULL;
 
-     Node *parent = NULL;
-     Node *currentNode = NULL;
+        search(element, parent, currentNode);
 
-     search(element, parent, currentNode);
-
-       if (parent == NULL)
+        if (parent == NULL)
         {
             ROOT = newNode;
             return;
         }
 
-        if(element < parent->info)
+        if (element < parent->info)
         {
             parent->leftchild = newNode;
         }
-        else if(element > parent->info)
+        else if (element > parent->info)
         {
             parent->rightchild = newNode;
         }
-
-}
+    }
 
     // this function searches the current node of the specified node
     // as well as the current node of its parent
@@ -86,16 +84,28 @@ void insert(string element)
             return;
         }
 
-        if(ptr != NULL)
+        if (ptr != NULL)
         {
             inorder(ptr->leftchild);
             cout << ptr->info << " ";
             inorder(ptr->rightchild);
         }
+    }
 
+     void preorder(Node *ptr)
+    {
+        if (ROOT == NULL)
+        {
+            cout << "tree is empty" << endl;
+            return;
+        }
+
+        if(ptr != NULL)
+        {
+            cout << ptr->info << " ";
+            preorder(ptr->leftchild);
+            preorder(ptr->rightchild);
+        }
     }
 };
-
-
-
 
